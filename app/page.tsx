@@ -1,8 +1,15 @@
+import React from "react"
 import Image from "next/image"
 import { Truck, Plane, Globe, Package, MapPin, Phone, Mail, ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
-export default function Home() {
+interface HomeProps {
+  params: {
+    id: string
+  }
+}
+
+export default function Home({ params }: HomeProps) {
   return (
     <div className="flex flex-col min-h-screen">
       <header className="sticky top-0 z-50 bg-white border-b">
@@ -205,7 +212,7 @@ export default function Home() {
         <section id="contacto" className="py-16 bg-[#4b2d83] text-white">
           <div className="container px-4 mx-auto md:px-6">
             <div className="grid gap-6 lg:grid-cols-2 lg:gap-12">
-              <div className="space-y-4">
+              <div className="space-y-4 w-[90%]">
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">Contáctenos</h2>
                 <p className="text-gray-200 md:text-lg">
                   Estamos listos para atender sus consultas y brindarle la mejor solución para sus necesidades
@@ -225,54 +232,54 @@ export default function Home() {
                     <span>DRLEXPRESSCOL.COM.CO</span>
                   </div>
                 </div>
-              </div>
-              <div className="bg-white p-6 rounded-lg shadow-lg">
-                <form className="space-y-4">
-                  <div className="grid gap-4 sm:grid-cols-2">
+                <div className="bg-white p-6 rounded-lg shadow-lg">
+                  <form className="space-y-4">
+                    <div className="grid gap-4 sm:grid-cols-2">
+                      <div className="space-y-2">
+                        <label htmlFor="name" className="text-sm font-medium text-gray-900">
+                          Nombre
+                        </label>
+                        <input
+                          id="name"
+                          placeholder="Su nombre"
+                          className="w-full px-3 py-2 border rounded-md text-gray-900"
+                        />
+                      </div>
+                      <div className="space-y-2">
+                        <label htmlFor="email" className="text-sm font-medium text-gray-900">
+                          Email
+                        </label>
+                        <input
+                          id="email"
+                          type="email"
+                          placeholder="Su email"
+                          className="w-full px-3 py-2 border rounded-md text-gray-900"
+                        />
+                      </div>
+                    </div>
                     <div className="space-y-2">
-                      <label htmlFor="name" className="text-sm font-medium text-gray-900">
-                        Nombre
+                      <label htmlFor="subject" className="text-sm font-medium text-gray-900">
+                        Asunto
                       </label>
                       <input
-                        id="name"
-                        placeholder="Su nombre"
+                        id="subject"
+                        placeholder="Asunto de su mensaje"
                         className="w-full px-3 py-2 border rounded-md text-gray-900"
                       />
                     </div>
                     <div className="space-y-2">
-                      <label htmlFor="email" className="text-sm font-medium text-gray-900">
-                        Email
+                      <label htmlFor="message" className="text-sm font-medium text-gray-900">
+                        Mensaje
                       </label>
-                      <input
-                        id="email"
-                        type="email"
-                        placeholder="Su email"
-                        className="w-full px-3 py-2 border rounded-md text-gray-900"
+                      <textarea
+                        id="message"
+                        placeholder="Su mensaje"
+                        className="w-full px-3 py-2 border rounded-md min-h-[120px] text-gray-900"
                       />
                     </div>
-                  </div>
-                  <div className="space-y-2">
-                    <label htmlFor="subject" className="text-sm font-medium text-gray-900">
-                      Asunto
-                    </label>
-                    <input
-                      id="subject"
-                      placeholder="Asunto de su mensaje"
-                      className="w-full px-3 py-2 border rounded-md text-gray-900"
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <label htmlFor="message" className="text-sm font-medium text-gray-900">
-                      Mensaje
-                    </label>
-                    <textarea
-                      id="message"
-                      placeholder="Su mensaje"
-                      className="w-full px-3 py-2 border rounded-md min-h-[120px] text-gray-900"
-                    />
-                  </div>
-                  <Button className="w-full bg-[#f26522] hover:bg-[#d55a1d] text-white">Enviar Mensaje</Button>
-                </form>
+                    <Button className="w-full bg-[#f26522] hover:bg-[#d55a1d] text-white">Enviar Mensaje</Button>
+                  </form>
+                </div>
               </div>
             </div>
           </div>
